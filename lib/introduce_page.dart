@@ -24,7 +24,9 @@ class IntroducePage extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showDeleteDialog(context);
+            },
             icon: Icon(Icons.edit),
           )
         ],
@@ -32,12 +34,7 @@ class IntroducePage extends StatelessWidget {
       body: Column(
         children: [
           OutlinedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => IntroduceEditPage()),
-              );
-            },
+            onPressed: () {},
             child: Text("소개수정페이지로 이동"),
           ),
           OutlinedButton(
@@ -54,6 +51,38 @@ class IntroducePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void showDeleteDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("수정하시겠습니까?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => IntroduceEditPage()),
+                );
+              },
+              child: Text("예"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "아니오",
+                style: TextStyle(color: Colors.pink),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
