@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/main_page.dart';
 
-void main() {
+late SharedPreferences prefs;
+
+void main() async {
+  prefs = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
