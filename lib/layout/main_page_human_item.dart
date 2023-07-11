@@ -20,17 +20,20 @@ class MainPageHumanItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: func,
-      child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-        child: Card(
-          elevation: 1,
-          color: Colors.white,
-          child: Column(
-            children: [
-              Image.asset(path, scale: 0.5),
-              Text("$name / $position / $mbti"),
-            ],
-          ),
+      child: Card(
+        elevation: 5,
+        color: Colors.white,
+        child: Column(
+          children: [
+            Image.asset(
+              path,
+              width: 100,
+              height: 100,
+            ),
+            Padding(
+                padding: EdgeInsets.all(5),
+                child: Text("$name / $position / $mbti")),
+          ],
         ),
       ),
     );

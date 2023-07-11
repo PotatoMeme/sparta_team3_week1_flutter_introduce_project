@@ -12,23 +12,15 @@ class PublicThingService extends ChangeNotifier {
 
   List<PublicThing> publicThingList = [
     PublicThing(
-      name: "약속-1",
       value: "내용",
     ), // 더미(dummy) 데이터
     PublicThing(
-      name: "약속-2",
       value: "내용",
     ), // 더미(dummy) 데이터
     PublicThing(
-      name: "약속-3",
       value: "내용",
     ), // 더미(dummy) 데이터
     PublicThing(
-      name: "약속-4",
-      value: "내용",
-    ), // 더미(dummy) 데이터
-    PublicThing(
-      name: "약속-5",
       value: "내용",
     ), // 더미(dummy) 데이터
   ];

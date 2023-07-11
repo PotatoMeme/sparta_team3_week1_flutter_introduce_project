@@ -10,7 +10,7 @@ class PublicThing {
   Map toJson() {
     return {
       "name": name,
-      "value": value,
+      "publicThing": value,
     };
   }
 
