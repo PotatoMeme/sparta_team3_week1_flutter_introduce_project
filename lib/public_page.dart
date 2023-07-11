@@ -20,40 +20,35 @@ class PublicPage extends StatelessWidget {
             title: Text("약속 페이지"),
             actions: [
               IconButton(
-                icon: Icon(CupertinoIcons.pencil),
+                icon: Icon(Icons.edit),
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return Dialog(
-                        child: Container(
-                          width: 200,
-                          height: 150,
-                          child: Column(children: [
-                            Text(
-                              '수정하시겠습니까?',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            SizedBox(height: 10),
-                            TextButton(
-                              child: Text('예'),
+                      return AlertDialog(
+                        title: Text("수정하시겠습니까?"),
+                        actions: [
+                          TextButton(
+                            child: Text('예'),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => PublicEditMultiPage(),
+                                ),
+                              );
+                            },
+                          ),
+                          TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => PublicEditMultiPage(),
-                                  ),
-                                );
                               },
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text('아니오'))
-                          ]),
-                        ),
+                              child: Text(
+                                '아니오',
+                                style: TextStyle(color: Colors.pink),
+                              ))
+                        ],
                       );
                     },
                   );

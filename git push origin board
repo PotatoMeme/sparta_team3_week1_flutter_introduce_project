@@ -1,0 +1,235 @@
+[33mcommit a478fd8dcf40a134a86732189cbbf661aad56313[m[33m ([m[1;36mHEAD -> [m[1;32mboard[m[33m)[m
+Author: seongssu <loveforggong@gmail.com>
+Date:   Tue Jul 11 15:02:21 2023 +0900
+
+     새로운 기능을 추가
+
+[33mcommit 3159a6f33412bfed1d5e8d5fbbe2adb4298ea1c0[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 41e38da 90e013e
+Author: KimSeongHwan <89847975+PotatoMeme@users.noreply.github.com>
+Date:   Tue Jul 11 12:47:32 2023 +0900
+
+    [MERGE] : ✅ pull request #6 from PotatoMeme/feature/service
+    
+    Feature/service
+
+[33mcommit 41e38dacb67f5a9e8a51921c3063f01bdc41caa6[m
+Merge: becbcd7 eab402b
+Author: Heodagyeom <139089748+Heodagyeom@users.noreply.github.com>
+Date:   Tue Jul 11 12:46:07 2023 +0900
+
+    Merge pull request #5 from PotatoMeme/dev_desgin
+    
+    앱바저장하기바디목차
+
+[33mcommit 90e013e673d6bad5d1467c059b9ba456fef99568[m
+Merge: c09abfb becbcd7
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 12:42:50 2023 +0900
+
+    Merge branch 'dev' of https://github.com/PotatoMeme/sparta_team3_week1_flutter_introduce_project into feature/service
+
+[33mcommit eab402b2e637b491eb8d8d26cffe5aa7d08e80bb[m
+Author: dagyeom <consult777@naver.com>
+Date:   Tue Jul 11 12:42:23 2023 +0900
+
+    앱바저장하기바디목차
+
+[33mcommit c09abfbabbd4efcd94386600e62409daf0fec297[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 12:41:29 2023 +0900
+
+    [FEAT] : ⚙️ introduce page provider 적용
+
+[33mcommit 2e8c518cd95632730d659d881fbdf24b7c3d3c55[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 12:40:59 2023 +0900
+
+    [FEAT] : ⚙️ main provider 적용
+
+[33mcommit 19be58199fee1a2ef2e7d22f431c3b0ac630c2eb[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 12:40:06 2023 +0900
+
+    [FEAT] : ⚙️ service provider 적용
+
+[33mcommit becbcd794a3cdab561a23b34d460ff6bbcd8422a[m
+Merge: 5cde3e5 3efae10
+Author: SeoJungHan <76927858+seojh5939@users.noreply.github.com>
+Date:   Tue Jul 11 12:00:06 2023 +0900
+
+    Merge pull request #4 from PotatoMeme/feat/main_page_renewal
+    
+    Feat/main page renewal
+
+[33mcommit 3efae10d0363892d23307062ae903ef61bf74c7d[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Tue Jul 11 11:59:45 2023 +0900
+
+    [DESIGN] : 🎨 회의실 리소스 제
+
+[33mcommit fa18c75a0ff8bfdbc51ca7e485c8c6f43efa1ebd[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Tue Jul 11 11:59:14 2023 +0900
+
+    [DESIGN] : 🎨 회의실 -> 카드형으로 수정완
+
+[33mcommit 34c48b924ba0b647adda116883c339285cf7dc45[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 11:57:32 2023 +0900
+
+    [FIX] : 🔧 HumanService에서  IntroduceService로 변경
+
+[33mcommit c233be3cb84deac114fa675b51a9d6d7cdec3220[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 11:48:41 2023 +0900
+
+    [FEAT] : ⚙️ Provider 라이브러리 추가
+
+[33mcommit 2041b582adcd71d407844028ba16613016875653[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 11:42:45 2023 +0900
+
+    [FEAT] : ⚙️ public_thing_service 추가
+
+[33mcommit 1406360d78a4600aaa8f0eab0cec02ac2381df3b[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 11:42:11 2023 +0900
+
+    [FEAT] : ⚙️ introduce service, 추가 삭제기능 추가
+
+[33mcommit 5cde3e5601fbb95ed274b01a572725bd9dfd5b07[m
+Merge: 4e8044d 29b8a62
+Author: SeoJungHan <76927858+seojh5939@users.noreply.github.com>
+Date:   Tue Jul 11 11:21:09 2023 +0900
+
+    Merge pull request #3 from PotatoMeme/feat/main_page
+    
+    Feat/main page
+
+[33mcommit 29b8a62d907b2bc24d0ec68c595ed3587612683d[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Tue Jul 11 11:10:25 2023 +0900
+
+    [DOCS] : 📚 클래스 설명 추가
+
+[33mcommit e78f346cbabcf0de12371d8b9aa28a3f6bbbed4b[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Tue Jul 11 10:27:26 2023 +0900
+
+    [FEAT] : ⚙️ 메인페이지 구현 완
+
+[33mcommit 93802c4cba0ba6f786e48c373f586aa499b69979[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 10:26:51 2023 +0900
+
+    [FEAT] : ⚙️ introduce service 추가
+
+[33mcommit 46f5f064b90cc960649b428316782ef0f8842667[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 10:25:54 2023 +0900
+
+    [FEAT] : ⚙️ SharedPreferences 라이브러리 추가
+
+[33mcommit 4e8044d8354265e5f6975bb0ecec4893b3193bb9[m
+Merge: 799954f 3e51630
+Author: KimSeongHwan <89847975+PotatoMeme@users.noreply.github.com>
+Date:   Tue Jul 11 09:57:18 2023 +0900
+
+    [MERGE] : ✅  pull request #2 from PotatoMeme/feature/introduce
+    
+    Feature/introduce
+
+[33mcommit 3e516303f2b6e5420f5c1009530123f02e68f7dc[m
+Merge: f015a6f 799954f
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Tue Jul 11 09:52:55 2023 +0900
+
+    Merge remote-tracking branch 'origin/dev' into feature/introduce
+
+[33mcommit 26b10023ea40f2dadacd50c05c838ba32d64a77a[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Tue Jul 11 08:56:04 2023 +0900
+
+    [DESIGN] : 🎨 칠판디자인 완료
+
+[33mcommit 624a696bbdb13652f94dfad9053a441e7b4b855a[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Tue Jul 11 08:54:46 2023 +0900
+
+    [DESIGN] : 🎨 main 디자인 리소스 추
+
+[33mcommit f015a6fe16562d7f4495ca8ed6f67126f6511e59[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 21:05:13 2023 +0900
+
+    [DESIGN] : 🎨 소개페이지 디자인
+
+[33mcommit 3b5fd1abaa683820e8e402baf0db7270a04144ac[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 19:24:41 2023 +0900
+
+    [FEAT] : ⚙️ 수정 다이얼로그 구현
+
+[33mcommit ba4246626e43c4a48e5e5502b93d807860a72741[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 19:20:00 2023 +0900
+
+    [FEAT] : ⚙️ WebView 구현
+
+[33mcommit d76708013e283a3886223e0e8c8af53147cd2e4d[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 19:19:23 2023 +0900
+
+    [FEAT] : ⚙️ 안드로이드 minSdkVersion 변경
+
+[33mcommit 086fb7c3319964ac17dea3643ac60f435d35dae1[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 19:18:16 2023 +0900
+
+    [FEAT] : ⚙️ WebView 라이브러리 추가
+
+[33mcommit 799954f3440048a69d977f0550ad6f6e2062b526[m
+Merge: 7e4a185 b05a409
+Author: SeoJungHan <76927858+seojh5939@users.noreply.github.com>
+Date:   Mon Jul 10 18:03:30 2023 +0900
+
+    Merge pull request #1 from PotatoMeme/feat/splash
+    
+    Feat/splash
+
+[33mcommit b05a4095d42fe598822a896f80e08c031118171c[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Mon Jul 10 18:02:35 2023 +0900
+
+    [FEAT] : ⚙️ 메인페이지로 바로 로드하도록 변
+
+[33mcommit 3dd10fa66b362d141f7f8fd739fc3db0c9025baf[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Mon Jul 10 18:01:50 2023 +0900
+
+    [FIX] : 🔧 불필요한 dart파일 제
+
+[33mcommit f4457eb13b4de2a3b1914e9a40605d97b67094d8[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Mon Jul 10 18:01:07 2023 +0900
+
+    [FEAT] : ⚙️ 스플레시 이미지 생성
+
+[33mcommit ff34d503c0f69d755dbae048bd40f45c1caa6d5c[m
+Author: SeoJungHan <seojh5939@gmail.com>
+Date:   Mon Jul 10 17:59:31 2023 +0900
+
+    [FEAT] : ⚙️ native splash 라이브러리 추
+
+[33mcommit 7e4a18509fe2d8a2ee983e4aa36afffe70fb45cd[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 17:11:13 2023 +0900
+
+    [feat] - Human,PublicThing class 추가
+
+[33mcommit 925f226f6bdef7a7703b69aa52d030927e51d07a[m
+Author: PotatoMeme <kshk0897@gmail.com>
+Date:   Mon Jul 10 16:42:33 2023 +0900
+
+    [init] - baseSettings
