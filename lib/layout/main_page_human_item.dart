@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_page.dart';
 
+/// 메인페이지에서 사용되는 사람 얼굴 Item
 class MainPageHumanItem extends StatelessWidget {
   MainPageHumanItem({
     Key? key,
