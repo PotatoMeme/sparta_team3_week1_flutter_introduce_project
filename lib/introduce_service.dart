@@ -66,8 +66,18 @@ class HumanService {
             "https://avatars.akamai.steamstatic.com/d18545996fbbc474a47e76c566c8a9ac7b09e8d0_full.jpg"), // 더미(dummy) 데이터
   ];
 
+  createHuman({required Human human}) {
+    humanList.add(human);
+    saveHumanList();
+  }
+
   updateHuman({required int index, required Human changed}) {
     humanList[index] = changed;
+    saveHumanList();
+  }
+
+  deleteHuman({required int index}) {
+    humanList.removeAt(index);
     saveHumanList();
   }
 
