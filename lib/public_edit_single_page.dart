@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'public_edit_saveDialog.dart';
+import 'public_thing.dart';
+import 'public_thing_service.dart';
 
 class PublicEditSinglePage extends StatefulWidget {
-  const PublicEditSinglePage({super.key});
-
+  const PublicEditSinglePage({super.key, required this.idx});
+  final int idx;
   @override
   State<PublicEditSinglePage> createState() => _PublicEditSinglePageState();
 }
@@ -16,6 +18,11 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
 
   @override
   Widget build(BuildContext context) {
+    PublicThingService publicThingService = context.read<PublicThingService>();
+    int _index = widget.idx;
+
+    List<PublicThing> publicThingList = publicThingService.publicThingList;
+    contentController.text = publicThingList[_index].value;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -30,9 +37,7 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              showSaveConfirmationDialog(context);
-            },
+            onPressed: () {},
             icon: Icon(Icons.save),
           )
         ],
@@ -52,7 +57,7 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
                   color: Colors.blue),
               alignment: Alignment.center,
               child: Text(
-                "?????",
+                publicThingList[_index].name,
                 style: TextStyle(fontSize: 20),
               ),
             ),

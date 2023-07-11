@@ -75,7 +75,9 @@ class PublicPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => PublicEditSinglePage()));
+                                  builder: (_) => PublicEditSinglePage(
+                                        idx: index,
+                                      )));
                         },
                         child: Container(
                           decoration: BoxDecoration(
