@@ -3,10 +3,13 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_page.dart';
+import 'package:sparta_team3_week1_flutter_introduce_project/layout/main_page_human_item.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/public_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
+
+  final String DEFAULT_IMG_PATH = "assets/images/smile.png";
 
   @override
   Widget build(BuildContext context) {
@@ -41,75 +44,53 @@ class MainPage extends StatelessWidget {
                 ],
               ),
             ),
-            // Stack(
-            //   alignment: Alignment.center,
-            //   children: [
-            //     Image.asset(
-            //       'assets/images/conference_table.jpeg',
-            //     ),
-            //     Column(
-            //       children: [
-            //         Column(
-            //           children: [
-            //             Container(
-            //               alignment: Alignment.topCenter,
-            //               width: 100,
-            //               height: 100,
-            //               decoration: BoxDecoration(
-            //                 image: DecorationImage(
-            //                   image: AssetImage('assets/images/smile.png'),
-            //                 ),
-            //               ),
-            //               child: Text("박성수"),
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //     Row(
-            //       children: [
-            //         Column(
-            //           children: [
-            //             Column(
-            //               children: [
-            //                 Container(
-            //                   alignment: Alignment.topCenter,
-            //                   width: 100,
-            //                   height: 100,
-            //                   decoration: BoxDecoration(
-            //                     image: DecorationImage(
-            //                       image: AssetImage('assets/images/smile.png'),
-            //                     ),
-            //                   ),
-            //                   child: Text("박성수"),
-            //                 ),
-            //               ],
-            //             ),
-            //           ],
-            //         ),
-            //         Column(
-            //           children: [
-            //             Column(
-            //               children: [
-            //                 Container(
-            //                   alignment: Alignment.topCenter,
-            //                   width: 100,
-            //                   height: 100,
-            //                   decoration: BoxDecoration(
-            //                     image: DecorationImage(
-            //                       image: AssetImage('assets/images/smile.png'),
-            //                     ),
-            //                   ),
-            //                   child: Text("박성수"),
-            //                 ),
-            //               ],
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //   ],
-            // ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/conference_table.jpeg',
+                ),
+                Positioned(
+                  bottom: 140,
+                  child: MainPageHumanItem(
+                    name: '박성수',
+                    path: DEFAULT_IMG_PATH,
+                  ),
+                ),
+                Positioned(
+                  left: 15,
+                  bottom: 75,
+                  child: MainPageHumanItem(
+                    name: '김성환',
+                    path: DEFAULT_IMG_PATH,
+                  ),
+                ),
+                Positioned(
+                  left: 75,
+                  bottom: 110,
+                  child: MainPageHumanItem(
+                    name: '조원준',
+                    path: DEFAULT_IMG_PATH,
+                  ),
+                ),
+                Positioned(
+                  right: 75,
+                  bottom: 110,
+                  child: MainPageHumanItem(
+                    name: '허다겸',
+                    path: DEFAULT_IMG_PATH,
+                  ),
+                ),
+                Positioned(
+                  right: 15,
+                  bottom: 75,
+                  child: MainPageHumanItem(
+                    name: '서정한',
+                    path: DEFAULT_IMG_PATH,
+                  ),
+                ),
+              ],
+            ),
             // OutlinedButton(
             //   onPressed: () {
             //     Navigator.push(
