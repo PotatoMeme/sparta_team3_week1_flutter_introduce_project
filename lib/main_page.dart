@@ -1,9 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sparta_team3_week1_flutter_introduce_project/human.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_edit_page.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_page.dart';
+import 'package:sparta_team3_week1_flutter_introduce_project/introduce_service.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/layout/main_page_human_item.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/public_page.dart';
 
@@ -14,6 +15,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Human> humanList = context.read<IntroduceService>().humanList;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 249, 216, 151),
       appBar: AppBar(
@@ -44,47 +46,62 @@ class MainPage extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "\u{1F465} 맴버",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width - 10,
+            height: MediaQuery.of(context).size.height * 0.18,
             child: Row(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisSpacing: 8,
-                        crossAxisSpacing: 8,
-                        crossAxisCount: 2,
-                        childAspectRatio: 0.85,
-                      ),
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: humanList.length,
                       itemBuilder: (context, index) {
                         return MainPageHumanItem(
                           path: DEFAULT_IMG_PATH,
-                          name: "홍길동",
-                          position: "팀장",
-                          mbti: "ENFP",
+                          name: humanList[index].name,
+                          position: humanList[index].posittion,
+                          mbti: humanList[index].mbti,
                           func: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => IntroducePage()),
+                                  builder: (_) => IntroducePage(
+                                        idx: index,
+                                      )),
                             );
                           },
                         );
                       }),
                 ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => IntroduceEditPage()),
-                    );
-                  },
-                  icon: Icon(Icons.add),
-                ),
               ],
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => IntroduceEditPage(),
+            ),
+          );
+        },
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.add_outlined),
       ),
     );
   }
