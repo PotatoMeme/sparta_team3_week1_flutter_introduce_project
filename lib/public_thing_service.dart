@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/public_thing.dart';
 
 import 'main.dart';
 
-class PublicThingService {
+class PublicThingService extends ChangeNotifier {
   PublicThingService() {
     loadPublicThingList();
   }
@@ -34,16 +35,19 @@ class PublicThingService {
 
   createPublicThing({required PublicThing publicThing}) {
     publicThingList.add(publicThing);
+    notifyListeners();
     savePublicThingList();
   }
 
   updatePublicThing({required int index, required PublicThing changed}) {
     publicThingList[index] = changed;
+    notifyListeners();
     savePublicThingList();
   }
 
   deletePublicThing({required int index}) {
     publicThingList.removeAt(index);
+    notifyListeners();
     savePublicThingList();
   }
 

@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 import 'human.dart';
 import 'main.dart';
 
-class IntroduceService {
+class IntroduceService extends ChangeNotifier {
   IntroduceService() {
     loadHumanList();
   }
@@ -68,16 +70,19 @@ class IntroduceService {
 
   createHuman({required Human human}) {
     humanList.add(human);
+    notifyListeners();
     saveHumanList();
   }
 
   updateHuman({required int index, required Human changed}) {
     humanList[index] = changed;
+    notifyListeners();
     saveHumanList();
   }
 
   deleteHuman({required int index}) {
     humanList.removeAt(index);
+    notifyListeners();
     saveHumanList();
   }
 
