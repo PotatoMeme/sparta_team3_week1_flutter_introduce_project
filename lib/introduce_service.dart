@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'human.dart';
 import 'main.dart';
 
-class HumanService {
-  HumanService() {
+class IntroduceService {
+  IntroduceService() {
     loadHumanList();
   }
 
