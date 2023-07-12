@@ -16,7 +16,7 @@ class PublicEditSinglePage extends StatefulWidget {
 class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
   List<TextEditingController> contentControllerList = [TextEditingController()];
 
-  int count = 1;
+  bool multiSingle = false; // saveDialog에서 single_page와 multi_page를 구분하기 위한 변수
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
           OutlinedButton(
             onPressed: () {
               showSaveConfirmationDialog(
-                  context, contentControllerList, widget.idx, count);
+                  context, contentControllerList, widget.idx, multiSingle);
             },
             child: Icon(
               CupertinoIcons.floppy_disk,
