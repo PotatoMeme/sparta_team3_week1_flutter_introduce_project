@@ -24,11 +24,12 @@ class MainPageHumanItem extends StatelessWidget {
         elevation: 5,
         color: Colors.white,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               path,
-              width: 100,
-              height: 100,
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
             Padding(
                 padding: EdgeInsets.all(5),
