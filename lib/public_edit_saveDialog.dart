@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'public_thing.dart';
 import 'public_thing_service.dart';
-import 'public_page.dart';
 
-void showSaveConfirmationDialog(
-    BuildContext context, List<TextEditingController> contentControllerList) {
+void showSaveConfirmationDialog(BuildContext context,
+    List<TextEditingController> contentControllerList, int index, int count) {
   PublicThingService publicThingService = context.read<PublicThingService>();
 
   List<PublicThing> publicThingList = publicThingService.publicThingList;
@@ -20,11 +19,16 @@ void showSaveConfirmationDialog(
         actions: [
           TextButton(
             onPressed: () {
-              for (int i = 0; i < publicThingList.length; i++) {
-                publicThingService.updatePublicThing(
-                    idx: i, changed: contentControllerList[i].text);
+              if (count == 0) {
+                for (int i = 0; i < publicThingList.length; i++) {
+                  publicThingService.updatePublicThing(
+                      idx: i, changed: contentControllerList[i].text);
+                }
               }
-              print('실행 완료');
+              if (count != 0) {
+                publicThingService.updatePublicThing(
+                    idx: index, changed: contentControllerList[0].text);
+              }
               Navigator.pop(context);
               Navigator.pop(context);
             },
@@ -32,12 +36,12 @@ void showSaveConfirmationDialog(
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PublicPage()),
-              );
+              Navigator.pop(context);
             },
-            child: Text('아니요'),
+            child: Text(
+              '아니요',
+              style: TextStyle(color: Colors.pink),
+            ),
           ),
         ],
       );

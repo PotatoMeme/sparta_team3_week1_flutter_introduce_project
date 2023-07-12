@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'public_edit_saveDialog.dart';
 import 'public_thing.dart';
 import 'public_thing_service.dart';
 
@@ -13,16 +14,17 @@ class PublicEditSinglePage extends StatefulWidget {
 }
 
 class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
-  TextEditingController contentController = TextEditingController();
-  String _content1 = '';
+  List<TextEditingController> contentControllerList = [TextEditingController()];
+
+  int count = 1;
 
   @override
   Widget build(BuildContext context) {
     PublicThingService publicThingService = context.read<PublicThingService>();
-    int _index = widget.idx;
+    int index = widget.idx;
 
     List<PublicThing> publicThingList = publicThingService.publicThingList;
-    contentController.text = publicThingList[_index].value;
+    contentControllerList[0].text = publicThingList[index].value;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -32,64 +34,54 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
           "약속단일수정 페이지",
           style: TextStyle(
             fontSize: 28,
-            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
         actions: [
-          IconButton(
+          OutlinedButton(
             onPressed: () {
-              publicThingService.updatePublicThing(
-                  idx: _index, changed: _content1);
-              Navigator.pop(context);
+              showSaveConfirmationDialog(
+                  context, contentControllerList, widget.idx, count);
             },
-            icon: Icon(Icons.save),
-          )
+            child: Icon(
+              CupertinoIcons.floppy_disk,
+              color: Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+          ),
         ],
       ),
       body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              width: 250,
-              height: 40,
-              decoration: BoxDecoration(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Text(
+                publicThingList[index].name,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+              ),
+              SizedBox(height: 10),
+              Container(
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: Colors.black),
-                  color: Colors.blue),
-              alignment: Alignment.center,
-              child: Text(
-                publicThingList[_index].name,
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
-            SizedBox(height: 30),
-            Container(
-              width: 300,
-              height: 80,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
+                  color: Color.fromARGB(255, 135, 240, 240),
+                ),
+                padding: EdgeInsets.all(60),
+                width: double.infinity,
                 child: TextField(
-                  controller: contentController,
+                  controller: contentControllerList[0],
                   decoration: InputDecoration(
                     border: InputBorder.none,
                   ),
                   autofocus: true,
-                  expands: true,
-                  maxLines: null,
                   keyboardType: TextInputType.multiline,
-                  onChanged: (value) {
-                    _content1 = value;
-                  },
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
