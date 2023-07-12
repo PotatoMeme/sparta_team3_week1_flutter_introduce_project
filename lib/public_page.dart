@@ -6,9 +6,16 @@ import 'package:sparta_team3_week1_flutter_introduce_project/public_edit_single_
 import 'package:sparta_team3_week1_flutter_introduce_project/public_thing.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/public_thing_service.dart';
 
-class PublicPage extends StatelessWidget {
+class PublicPage extends StatefulWidget {
   PublicPage({super.key});
+
+  @override
+  State<PublicPage> createState() => _PublicPageState();
+}
+
+class _PublicPageState extends State<PublicPage> {
   var publicList = ['우리의 약속', '추구하는 궁극적인 목표', '우리의 규칙', '우리팀만의 특징'];
+
   @override
   Widget build(BuildContext context) {
     return Consumer<PublicThingService>(

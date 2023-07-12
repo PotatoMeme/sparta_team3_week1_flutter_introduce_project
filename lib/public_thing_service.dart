@@ -48,6 +48,12 @@ class PublicThingService extends ChangeNotifier {
     savePublicThingList();
   }
 
+  updatePublicThingSingle({required int idx, required String changed}) {
+    publicThingList[idx].value = changed;
+    notifyListeners();
+    savePublicThingList();
+  }
+
   deletePublicThing({required int index}) {
     publicThingList.removeAt(index);
     notifyListeners();
@@ -58,12 +64,17 @@ class PublicThingService extends ChangeNotifier {
     List publicThingJsonList =
         publicThingList.map((publicThing) => publicThing.toJson()).toList();
     String jsonString = jsonEncode(publicThingJsonList);
+    print("jsonString in save");
+    print(jsonString);
     prefs.setString('publicThingList', jsonString);
   }
 
   loadPublicThingList() {
     String? jsonSting = prefs.getString('publicThingList');
+    print("jsonString in load");
+    print(jsonSting);
     if (jsonSting == null) return;
+
     List publicThingJsonList = jsonDecode(jsonSting);
     publicThingList =
         publicThingJsonList.map((json) => PublicThing.fromJson(json)).toList();
