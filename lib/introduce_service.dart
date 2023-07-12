@@ -7,6 +7,7 @@ import 'main.dart';
 
 class IntroduceService extends ChangeNotifier {
   IntroduceService() {
+    //service 생성시 shared experience에 접근하여 저장된값을 불러옴
     loadHumanList();
   }
 
@@ -76,33 +77,46 @@ class IntroduceService extends ChangeNotifier {
   ];
 
   createHuman({required Human human}) {
-    humanList.add(human);
-    notifyListeners();
-    saveHumanList();
+    //소개생성
+    humanList.add(human); //리스트에 값을 추가
+    notifyListeners(); //화면최신화
+    saveHumanList(); //리스트안의 데이이터들을 shared experience에저장
   }
 
   updateHuman({required int index, required Human changed}) {
-    humanList[index] = changed;
-    notifyListeners();
-    saveHumanList();
+    //소개수정
+    humanList[index] = changed; //최산값을 해당 index에 집어넣어 변경
+    notifyListeners(); //화면최신화
+    saveHumanList(); //리스트안의 데이이터들을 shared experience에저장
   }
 
   deleteHuman({required int index}) {
-    humanList.removeAt(index);
-    notifyListeners();
-    saveHumanList();
+    //소개삭제
+    humanList.removeAt(index); //해당 index의 값을 삭제
+    notifyListeners(); //화면최신화
+    saveHumanList(); //리스트안의 데이이터들을 shared experience에저장
   }
 
   saveHumanList() {
-    List humanJsonList = humanList.map((human) => human.toJson()).toList();
-    String jsonString = jsonEncode(humanJsonList);
-    prefs.setString('humanList', jsonString);
+    //현재값들을 shared experience에 저장하는 함수
+    List humanJsonList = humanList
+        .map((human) => human.toJson())
+        .toList(); //humanList를 돌면서 Human형태의 현재객체를 map형태로 변경하고 그결과를 list로 변경하여 결과적으로는 List<Map>형태로 만듬
+    String jsonString = jsonEncode(
+        humanJsonList); //jsonEncode함수로 List<Map>형태의 값을  문자열형태의 json으로 만들어버림
+    prefs.setString(
+        'humanList', jsonString); //shared experience에 humanList라는이름으로 json을 저장
   }
 
   loadHumanList() {
-    String? jsonSting = prefs.getString('humanList');
-    if (jsonSting == null) return;
-    List humanJsonList = jsonDecode(jsonSting);
-    humanList = humanJsonList.map((json) => Human.fromJson(json)).toList();
+    //shared experience에서 저장되어있는 humanList를 불러오는 함수
+    String? jsonString = prefs
+        .getString('humanList'); //shared experience에 humanList라는이름의 문자열을 불러옴
+    if (jsonString == null) return; //해당값이 없다면 함수를 종료
+    List humanJsonList =
+        jsonDecode(jsonString); //jsonString이라는 문자열을 디코드하여 List<Map>형태로변경
+    humanList = humanJsonList
+        .map((json) => Human.fromJson(json))
+        .toList(); //List<Map>형태의 humanJsonList를 변환하여 List<Human>형태로 변경해줌
   }
 }
