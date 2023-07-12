@@ -4,8 +4,11 @@ import 'package:provider/provider.dart';
 import 'public_thing.dart';
 import 'public_thing_service.dart';
 
-void showSaveConfirmationDialog(BuildContext context,
-    List<TextEditingController> contentControllerList, int index, int count) {
+void showSaveConfirmationDialog(
+    BuildContext context,
+    List<TextEditingController> contentControllerList,
+    int index,
+    bool multiSingle) {
   PublicThingService publicThingService = context.read<PublicThingService>();
 
   List<PublicThing> publicThingList = publicThingService.publicThingList;
@@ -19,13 +22,13 @@ void showSaveConfirmationDialog(BuildContext context,
         actions: [
           TextButton(
             onPressed: () {
-              if (count == 0) {
+              if (multiSingle == true) {
                 for (int i = 0; i < publicThingList.length; i++) {
                   publicThingService.updatePublicThing(
                       idx: i, changed: contentControllerList[i].text);
                 }
               }
-              if (count != 0) {
+              if (multiSingle == false) {
                 publicThingService.updatePublicThing(
                     idx: index, changed: contentControllerList[0].text);
               }

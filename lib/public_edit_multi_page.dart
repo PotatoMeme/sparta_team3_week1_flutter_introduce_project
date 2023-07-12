@@ -8,7 +8,7 @@ import 'public_thing_service.dart';
 class PublicEditMultiPage extends StatefulWidget {
   PublicEditMultiPage({super.key, this.idx = 0});
 
-  final int idx;
+  final int idx; // public_page에서 넘어온 인덱스값 사용 x
 
   @override
   State<PublicEditMultiPage> createState() => _PublicEditMultiPageState();
@@ -22,7 +22,7 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
     TextEditingController(),
   ];
 
-  int count = 0;
+  bool multiSingle = true; // saveDialog에서 single_page와 multi_page를 구분하기 위한 변수
   @override
   Widget build(BuildContext context) {
     PublicThingService publicThingService = context.read<PublicThingService>();
@@ -51,7 +51,7 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
               OutlinedButton(
                 onPressed: () {
                   showSaveConfirmationDialog(
-                      context, contentControllerList, widget.idx, count);
+                      context, contentControllerList, widget.idx, multiSingle);
                 },
                 child: Icon(
                   CupertinoIcons.floppy_disk,
