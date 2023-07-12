@@ -43,15 +43,23 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
               "약속멀티수정 페이지",
               style: TextStyle(
                 fontSize: 28,
-                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             actions: [
-              IconButton(
+              OutlinedButton(
                 onPressed: () {
-                  showSaveConfirmationDialog(context, contentControllerList);
+                  showSaveConfirmationDialog(
+                      context, contentControllerList, widget.idx, count);
                 },
-                icon: Icon(Icons.save),
+                child: Icon(
+                  CupertinoIcons.floppy_disk,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
               ),
             ],
           ),
@@ -82,6 +90,8 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
                           hintText: "입력을 해주세요",
                           border: InputBorder.none,
                         ),
+                        autofocus: true,
+                        keyboardType: TextInputType.multiline,
                       ),
                     ),
                     SizedBox(height: 10),
