@@ -5,12 +5,16 @@ import 'package:provider/provider.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/human.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_service.dart';
 
+//소개를 추가하는 페이지 입니다.
 class IntroduceAddPage extends StatelessWidget {
   const IntroduceAddPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //소개를 추가할려면 서비스를 가져와야하므로 context.read로 서비스를 가져옵니다.
     IntroduceService introduceService = context.read<IntroduceService>();
+
+    //text의 입력을 TextEditingController를 통해 introduceService로 전달해줘야 하므로 정의해줍니다
     TextEditingController textEditingControllerName = TextEditingController();
     TextEditingController textEditingControllerPosition =
         TextEditingController();
@@ -24,6 +28,7 @@ class IntroduceAddPage extends StatelessWidget {
     TextEditingController textEditingControllerGoal = TextEditingController();
     TextEditingController textEditingControllerThumUrl =
         TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -37,11 +42,13 @@ class IntroduceAddPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
+              //저장버튼을 누를 경우의 로직임
               //저장로직을 구현해야함
               showCreateDialog(
                   context,
                   () => {
                         introduceService.createHuman(
+                            //입력을 바탕으로 Human을 새로 만들어 추가해줍니다.
                             human: Human(
                                 name: textEditingControllerName.text,
                                 posittion: textEditingControllerPosition.text,
@@ -77,7 +84,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerName,
+                  controller:
+                      textEditingControllerName, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -93,7 +101,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerPosition,
+                  controller:
+                      textEditingControllerPosition, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -109,7 +118,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerHobby,
+                  controller:
+                      textEditingControllerHobby, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -125,7 +135,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerBlogUrl,
+                  controller:
+                      textEditingControllerBlogUrl, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -141,7 +152,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerStyle,
+                  controller:
+                      textEditingControllerStyle, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -157,7 +169,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerAdvantages,
+                  controller:
+                      textEditingControllerAdvantages, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -173,7 +186,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerMBTI,
+                  controller:
+                      textEditingControllerMBTI, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -189,7 +203,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerGoal,
+                  controller:
+                      textEditingControllerGoal, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
               Text(
@@ -205,7 +220,8 @@ class IntroduceAddPage extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  controller: textEditingControllerThumUrl,
+                  controller:
+                      textEditingControllerThumUrl, //항목에 맞게 TextEditingController를 집어넣어 줍니다
                 ),
               ),
             ],
@@ -228,7 +244,7 @@ class IntroduceAddPage extends StatelessWidget {
                 //예버튼을 누를경우의 로직
                 Navigator.pop(context); //다이얼로그를 끕니다.
                 Navigator.pop(context); //페이지를 끕니다.
-                dialogClosed();
+                dialogClosed(); //예버튼을 누를경우 위에 입력한  dialogClosed를 호출해줍니다.
               },
               child: Text("예"),
             ),
