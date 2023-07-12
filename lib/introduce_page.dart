@@ -25,13 +25,48 @@ class _IntroducePageState extends State<IntroducePage> {
           introduceService.humanList[_idx]; //idx값에 맞는 Human객체를 받아옵니다.
       return Scaffold(
         appBar: AppBar(
+          title: Text(
+            "소개 페이지",
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 255, 255, 255),
+            ),
+          ),
           actions: [
             IconButton(
               onPressed: () {
                 //수정버튼을 누를경우
-                showUpdateDialog(context); //다이얼로그를 보여줘 한번더 확인 합니다.
+                showBasicDialog(
+                  context,
+                  "수정하시겠습니까?",
+                  () {
+                    Navigator.push(
+                      //수정페이지로 이동합니다.
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => IntroduceEditPage(
+                                idx: widget.idx,
+                              )),
+                    );
+                  },
+                ); //다이얼로그를 보여줘 한번더 확인 합니다.
               },
               icon: Icon(Icons.edit),
+            ),
+            IconButton(
+              onPressed: () {
+                //삭제버튼을 누를경우
+                showBasicDialog(
+                  context,
+                  "삭제하시겠습니까?",
+                  () {
+                    Navigator.pop(context); //페이지를 끕니다.
+                    introduceService.deleteHuman(index: _idx);
+                  },
+                ); //다이얼로그를 보여줘 한번더 확인 합니다.
+              },
+              icon: Icon(Icons.delete),
             )
           ],
         ),
@@ -166,23 +201,20 @@ class _IntroducePageState extends State<IntroducePage> {
     });
   }
 
-  void showUpdateDialog(BuildContext context) {
-    //수정여부를 묻는 다이얼로그를 보여주는 함수입니다.
+  void showBasicDialog(
+      BuildContext context, String text, Function() dialogClosed) {
+    //여부를 묻는 다이얼로그를 보여주는 함수입니다.
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("수정하시겠습니까?"),
+          title: Text(text), //묻는곳입니다
           actions: [
             TextButton(
               onPressed: () {
                 //예버튼을 누를경우의 로직
                 Navigator.pop(context); //다이얼로그를 끕니다.
-                Navigator.push(
-                  //수정페이지로 이동합니다.
-                  context,
-                  MaterialPageRoute(builder: (_) => IntroduceEditPage()),
-                );
+                dialogClosed(); //예를 누를경우에만 수행
               },
               child: Text("예"),
             ),
