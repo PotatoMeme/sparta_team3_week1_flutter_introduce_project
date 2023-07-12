@@ -21,16 +21,25 @@ class MainPageHumanItem extends StatelessWidget {
     return InkWell(
       onTap: func,
       child: Card(
-        elevation: 5,
-        color: Colors.white,
+        elevation: 20,
+        color: Color.fromARGB(255, 249, 216, 151),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              path,
-              width: MediaQuery.of(context).size.width * 0.2,
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
+            path == ""
+                ? Image.asset(
+                    path,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                  )
+                : Image.network(
+                    path,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                  ),
             Padding(
                 padding: EdgeInsets.all(5),
                 child: Text("$name / $position / $mbti")),
