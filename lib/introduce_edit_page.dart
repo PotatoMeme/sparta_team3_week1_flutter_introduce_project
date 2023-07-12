@@ -29,8 +29,18 @@ class IntroduceEditPage extends StatelessWidget {
         TextEditingController(text: currentHuman.mbti);
     TextEditingController textEditingControllerGoal =
         TextEditingController(text: currentHuman.goal);
+    TextEditingController textEditingControllerThumUrl =
+        TextEditingController(text: currentHuman.thumbUrl);
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          "소개 수정 페이지",
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -50,7 +60,7 @@ class IntroduceEditPage extends StatelessWidget {
                                     textEditingControllerAdvantages.text,
                                 mbti: textEditingControllerMBTI.text,
                                 goal: textEditingControllerGoal.text,
-                                thumbUrl: currentHuman.thumbUrl))
+                                thumbUrl: textEditingControllerThumUrl.text))
                       }); //다이얼로그를 보여줘 한번더 확인 합니다.
             },
             icon: Icon(Icons.save),
@@ -188,6 +198,22 @@ class IntroduceEditPage extends StatelessWidget {
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
                   controller: textEditingControllerGoal,
+                ),
+              ),
+              Text(
+                "이미지 주소",
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.blue,
+                  ),
+                ),
+                margin: EdgeInsets.all(3),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerThumUrl,
                 ),
               ),
             ],
