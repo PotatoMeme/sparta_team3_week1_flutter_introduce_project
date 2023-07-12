@@ -181,7 +181,10 @@ class _IntroducePageState extends State<IntroducePage> {
                 Navigator.push(
                   //수정페이지로 이동합니다.
                   context,
-                  MaterialPageRoute(builder: (_) => IntroduceEditPage()),
+                  MaterialPageRoute(
+                      builder: (_) => IntroduceEditPage(
+                            idx: widget.idx,
+                          )),
                 );
               },
               child: Text("예"),

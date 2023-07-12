@@ -121,7 +121,7 @@ class MainPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (_) => IntroduceEditPage(),
+              builder: (_) => IntroduceEditPage(idx: 0),
             ),
           );
         },

@@ -1,38 +1,60 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:sparta_team3_week1_flutter_introduce_project/human.dart';
+import 'package:sparta_team3_week1_flutter_introduce_project/introduce_service.dart';
 
 class IntroduceEditPage extends StatelessWidget {
-  const IntroduceEditPage({super.key});
+  const IntroduceEditPage({super.key, required this.idx});
+  final int idx;
 
   @override
   Widget build(BuildContext context) {
+    IntroduceService introduceService = context.read<IntroduceService>();
+    Human currentHuman = introduceService.humanList[idx];
+    TextEditingController textEditingControllerName =
+        TextEditingController(text: currentHuman.name);
+    TextEditingController textEditingControllerPosition =
+        TextEditingController(text: currentHuman.posittion);
+    TextEditingController textEditingControllerHobby =
+        TextEditingController(text: currentHuman.hobby);
+    TextEditingController textEditingControllerBlogUrl =
+        TextEditingController(text: currentHuman.blogUrl);
+    TextEditingController textEditingControllerStyle =
+        TextEditingController(text: currentHuman.style);
+    TextEditingController textEditingControllerAdvantages =
+        TextEditingController(text: currentHuman.advantages);
+    TextEditingController textEditingControllerMBTI =
+        TextEditingController(text: currentHuman.mbti);
+    TextEditingController textEditingControllerGoal =
+        TextEditingController(text: currentHuman.goal);
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-        title: Text(
-          "소개 수정 페이지",
-          style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-        ),
         actions: [
-          OutlinedButton(
+          IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              //저장로직을 구현해야함
+              showUpdateDialog(
+                  context,
+                  () => {
+                        introduceService.updateHuman(
+                            index: idx,
+                            changed: Human(
+                                name: textEditingControllerName.text,
+                                posittion: textEditingControllerPosition.text,
+                                hobby: textEditingControllerHobby.text,
+                                blogUrl: textEditingControllerBlogUrl.text,
+                                style: textEditingControllerStyle.text,
+                                advantages:
+                                    textEditingControllerAdvantages.text,
+                                mbti: textEditingControllerMBTI.text,
+                                goal: textEditingControllerGoal.text,
+                                thumbUrl: currentHuman.thumbUrl))
+                      }); //다이얼로그를 보여줘 한번더 확인 합니다.
             },
-            child: Icon(
-              CupertinoIcons.floppy_disk,
-              color: Color.fromARGB(255, 255, 255, 255),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-          ),
+            icon: Icon(Icons.save),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -49,10 +71,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerName,
+                ),
               ),
               Text(
                 "직책",
@@ -63,10 +87,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerPosition,
+                ),
               ),
               Text(
                 '취미및특기',
@@ -77,10 +103,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerHobby,
+                ),
               ),
               Text(
                 "블로그",
@@ -91,10 +119,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerBlogUrl,
+                ),
               ),
               Text(
                 "자신의 협업 스타일",
@@ -105,10 +135,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerStyle,
+                ),
               ),
               Text(
                 "장점",
@@ -119,10 +151,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerAdvantages,
+                ),
               ),
               Text(
                 "MBTI",
@@ -133,10 +167,12 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerMBTI,
+                ),
               ),
               Text(
                 "목표",
@@ -147,29 +183,50 @@ class IntroduceEditPage extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                width: 350,
-                height: 30,
                 margin: EdgeInsets.all(3),
-                child: TextField(),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: textEditingControllerGoal,
+                ),
               ),
-              Text(
-                "프로필사진",
-              ),
-              Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue,
-                    ),
-                  ),
-                  width: 350,
-                  height: 300,
-                  margin: EdgeInsets.all(3),
-                  child: Image.network(
-                      'https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fstatic%2Fmanage%2Fimages%2Fr3%2Fdefault_L.png')),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void showUpdateDialog(BuildContext context, Function() dialogClosed) {
+    //수정여부를 묻는 다이얼로그를 보여주는 함수입니다.
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("수정하시겠습니까?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                //예버튼을 누를경우의 로직
+                Navigator.pop(context); //다이얼로그를 끕니다.
+                Navigator.pop(context); //페이지를 끕니다.
+                dialogClosed();
+              },
+              child: Text("예"),
+            ),
+            TextButton(
+              onPressed: () {
+                //아니오버튼을 누를경우의 로직입니다.
+                Navigator.pop(context); //다이얼로그를 끕니다.
+              },
+              child: Text(
+                "아니오",
+                style: TextStyle(color: Colors.pink),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
