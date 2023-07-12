@@ -14,19 +14,21 @@ class PublicThingService extends ChangeNotifier {
   List<PublicThing> publicThingList = [
     PublicThing(
       name: "우리의 약속",
-      value: "내용1",
+      value: "서로서로 감정적으로 대하지 말자!!!",
     ), // 더미(dummy) 데이터
     PublicThing(
       name: "추구하는 궁극적인 목표",
-      value: "내용2",
+      value: "- 다함께 안드로이드 개발자로 취업하기 \n- 함께 성장하고 서로의 성장을 돕기 ",
     ), // 더미(dummy) 데이터
     PublicThing(
       name: "우리의 규칙",
-      value: "내용3",
+      value:
+          "- 09:30 : 출석 체크 후 하루 계획 회의 \n - 19:00 : 진행상황 공유 및 피드백 \n- 짧은시간 자리를 비우는 경우 Nearby에 이유 올리기 ",
     ), // 더미(dummy) 데이터
     PublicThing(
       name: "우리팀만의 특징",
-      value: "내용4",
+      value:
+          "- 원활한 의사소통\n- 팀원들이 모두 선생님이다.\n- 문제가 해결될때까지 집중하는 집중력\n- 팀 프로젝트로 가지는 책임감",
     ), // 더미(dummy) 데이터
   ];
 

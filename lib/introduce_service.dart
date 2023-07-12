@@ -19,7 +19,7 @@ class IntroduceService extends ChangeNotifier {
         blogUrl: "https://23-06-21.tistory.com/",
         style:
             "- 저는 계획을 세우고 문제를 최대한 빠르게 해결하는 스타일입니다. \n- 인간관계 있어서 트러블이 생기면 최대한 원만하게 해결하려 합니다.",
-        advantages: "- 낯가림이 별로 없습니다. 언제든 말걸어주세요. \n기술적으로는 '아직'버퍼링이 생길 수 있습니다.",
+        advantages: "- 낯가림이 별로 없습니다.\n- 다른사람의 말을 잘 들어준다.",
         mbti: "ESFJ",
         goal:
             "- 최대한 코드와 친해져서 제스타일로 앱도 만들어 보고 \n서로서로 협업하면서 발생하는 대화에 적극적으로 참여 하기. \n- 익숙해졌을때쯤 좋은 회사의 구성원이 되기",
@@ -35,7 +35,7 @@ class IntroduceService extends ChangeNotifier {
         advantages:
             "- 저는 탐구심이 많은것이 장점입니다. \n- 그래서 궁금하거나 모르는게 있다면 \n시간이 지나더라도 꼭찾아보는 편입니다.",
         mbti: "INFP",
-        goal: "매일매일 성장해나가는 개발자",
+        goal: "- 매일매일 성장해나가는 개발자",
         thumbUrl:
             "https://github.com/seongssu/ImageUrl/blob/main/%EA%B9%80%EC%84%B1%ED%99%98.jpg?raw=true"), // 더미(dummy) 데이터
     Human(
@@ -47,18 +47,18 @@ class IntroduceService extends ChangeNotifier {
             "- 문제가 생겼을 때 우선 혼자서 시도를 해보고 해결이 되지 않을 경우 다른 사람들과 소통을 하여 문제를 해결합니다.",
         advantages: "- 저는 남들의 의견을 잘 들어서 남들과 소통을 원활하게 할 수 있는 것이 장점입니다.",
         mbti: "ISTJ",
-        goal: "기본기가 튼튼한 개발자",
+        goal: "- 기본기가 튼튼한 개발자",
         thumbUrl:
             "https://github.com/seongssu/ImageUrl/blob/main/%EC%A1%B0%EC%9B%90%EC%A4%80.jpg?raw=true"), // 더미(dummy) 데이터
     Human(
         name: "허다겸",
         posittion: "팀원",
-        hobby: "독서",
-        blogUrl: "https://consult777.tistory.com/manage/posts/",
-        style: "저는 이러한 스타일을 가지고 있습니다",
-        advantages: "저는 이러한 장점을 가지고 있습니다.",
+        hobby: "캘리그라피",
+        blogUrl: "https://consult777.tistory.com/",
+        style: "- 나만의 스타일은 아직 없고, 주변에 잘 물듭니다.",
+        advantages: "- 책임감이있고 감성적이다.",
         mbti: "INFJ",
-        goal: "좋은 개발자",
+        goal: "- 혼자 메모장 만들어 보기 \n- 좋은 개발자",
         thumbUrl:
             "https://github.com/seongssu/ImageUrl/blob/main/%ED%97%88%EB%8B%A4%EA%B2%B8.jpg?raw=true"), // 더미(dummy) 데이터
     Human(
