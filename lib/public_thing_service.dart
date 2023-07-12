@@ -12,16 +12,20 @@ class PublicThingService extends ChangeNotifier {
 
   List<PublicThing> publicThingList = [
     PublicThing(
-      value: "내용",
+      name: "우리의 약속",
+      value: "내용1",
     ), // 더미(dummy) 데이터
     PublicThing(
-      value: "내용",
+      name: "추구하는 궁극적인 목표",
+      value: "내용2",
     ), // 더미(dummy) 데이터
     PublicThing(
-      value: "내용",
+      name: "우리의 규칙",
+      value: "내용3",
     ), // 더미(dummy) 데이터
     PublicThing(
-      value: "내용",
+      name: "우리팀만의 특징",
+      value: "내용4",
     ), // 더미(dummy) 데이터
   ];
 
@@ -31,8 +35,8 @@ class PublicThingService extends ChangeNotifier {
     savePublicThingList();
   }
 
-  updatePublicThing({required int index, required PublicThing changed}) {
-    publicThingList[index] = changed;
+  updatePublicThing({required int idx, required String changed}) {
+    publicThingList[idx].value = changed;
     notifyListeners();
     savePublicThingList();
   }
