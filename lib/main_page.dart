@@ -71,7 +71,7 @@ class MainPage extends StatelessWidget {
                       itemCount: humanList.length,
                       itemBuilder: (context, index) {
                         return MainPageHumanItem(
-                          path: DEFAULT_IMG_PATH,
+                          path: humanList[index].thumbUrl,
                           name: humanList[index].name,
                           position: humanList[index].posittion,
                           mbti: humanList[index].mbti,
