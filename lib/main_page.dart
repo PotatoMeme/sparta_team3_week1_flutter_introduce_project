@@ -23,7 +23,8 @@ class MainPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Center(
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -47,7 +48,7 @@ class MainPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
