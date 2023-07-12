@@ -9,16 +9,8 @@ void showSaveConfirmationDialog(
     BuildContext context, List<TextEditingController> contentControllerList) {
   PublicThingService publicThingService = context.read<PublicThingService>();
 
-  List<TextEditingController> contentControllerList = [
-    TextEditingController(),
-    TextEditingController(),
-    TextEditingController(),
-    TextEditingController(),
-  ];
   List<PublicThing> publicThingList = publicThingService.publicThingList;
-  for (int i = 0; i < publicThingList.length; i++) {
-    contentControllerList[i].text = publicThingList[i].value;
-  }
+
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -26,15 +18,6 @@ void showSaveConfirmationDialog(
         title: Text('저장확인'),
         content: Text('변경 사항을 저장하시겠습니까?'),
         actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PublicPage()),
-              );
-            },
-            child: Text('아니요'),
-          ),
           TextButton(
             onPressed: () {
               for (int i = 0; i < publicThingList.length; i++) {
@@ -46,7 +29,16 @@ void showSaveConfirmationDialog(
               Navigator.pop(context);
             },
             child: Text('예'),
-          )
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PublicPage()),
+              );
+            },
+            child: Text('아니요'),
+          ),
         ],
       );
     },
