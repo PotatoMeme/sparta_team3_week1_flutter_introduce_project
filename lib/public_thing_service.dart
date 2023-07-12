@@ -35,20 +35,7 @@ class PublicThingService extends ChangeNotifier {
     savePublicThingList();
   }
 
-  updatePublicThing(
-      {required String changed1,
-      required String changed2,
-      required String changed3,
-      required String changed4}) {
-    publicThingList[0].value = changed1;
-    publicThingList[1].value = changed2;
-    publicThingList[2].value = changed3;
-    publicThingList[3].value = changed4;
-    notifyListeners();
-    savePublicThingList();
-  }
-
-  updatePublicThingSingle({required int idx, required String changed}) {
+  updatePublicThing({required int idx, required String changed}) {
     publicThingList[idx].value = changed;
     notifyListeners();
     savePublicThingList();
@@ -64,17 +51,12 @@ class PublicThingService extends ChangeNotifier {
     List publicThingJsonList =
         publicThingList.map((publicThing) => publicThing.toJson()).toList();
     String jsonString = jsonEncode(publicThingJsonList);
-    print("jsonString in save");
-    print(jsonString);
     prefs.setString('publicThingList', jsonString);
   }
 
   loadPublicThingList() {
     String? jsonSting = prefs.getString('publicThingList');
-    print("jsonString in load");
-    print(jsonSting);
     if (jsonSting == null) return;
-
     List publicThingJsonList = jsonDecode(jsonSting);
     publicThingList =
         publicThingJsonList.map((json) => PublicThing.fromJson(json)).toList();

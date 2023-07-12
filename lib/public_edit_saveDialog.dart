@@ -1,9 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'public_thing.dart';
+import 'public_thing_service.dart';
 import 'public_page.dart';
 
-void showSaveConfirmationDialog(BuildContext context) {
+void showSaveConfirmationDialog(
+    BuildContext context, List<TextEditingController> contentControllerList) {
+  PublicThingService publicThingService = context.read<PublicThingService>();
+
+  List<TextEditingController> contentControllerList = [
+    TextEditingController(),
+    TextEditingController(),
+    TextEditingController(),
+    TextEditingController(),
+  ];
+  List<PublicThing> publicThingList = publicThingService.publicThingList;
+  for (int i = 0; i < publicThingList.length; i++) {
+    contentControllerList[i].text = publicThingList[i].value;
+  }
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -18,16 +33,19 @@ void showSaveConfirmationDialog(BuildContext context) {
                 MaterialPageRoute(builder: (context) => PublicPage()),
               );
             },
-            child: Text('취소'),
+            child: Text('아니요'),
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PublicPage()),
-              );
+              for (int i = 0; i < publicThingList.length; i++) {
+                publicThingService.updatePublicThing(
+                    idx: i, changed: contentControllerList[i].text);
+              }
+              print('실행 완료');
+              Navigator.pop(context);
+              Navigator.pop(context);
             },
-            child: Text('확인'),
+            child: Text('예'),
           )
         ],
       );

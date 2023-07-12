@@ -37,7 +37,11 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              publicThingService.updatePublicThing(
+                  idx: _index, changed: _content1);
+              Navigator.pop(context);
+            },
             icon: Icon(Icons.save),
           )
         ],
