@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_service.dart';
@@ -10,6 +11,7 @@ late SharedPreferences prefs;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   prefs = await SharedPreferences.getInstance();
   runApp(MultiProvider(
     providers: [
