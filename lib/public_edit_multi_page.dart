@@ -90,7 +90,7 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
                           hintText: "입력을 해주세요",
                           border: InputBorder.none,
                         ),
-                        autofocus: true,
+                        maxLines: null,
                         keyboardType: TextInputType.multiline,
                       ),
                     ),
