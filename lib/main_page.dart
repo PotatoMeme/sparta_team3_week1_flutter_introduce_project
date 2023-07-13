@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
       return Scaffold(
         backgroundColor: Color.fromARGB(255, 249, 216, 151),
         appBar: AppBar(
-          title: Text("메인 페이지"),
+          title: Text("Main"),
         ),
         body: Column(
           children: [

@@ -39,7 +39,7 @@ class IntroduceEditPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "소개 수정 페이지",
+          "Edit Page 'Member'",
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,

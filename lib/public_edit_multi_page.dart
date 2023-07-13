@@ -40,7 +40,7 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
             iconTheme: IconThemeData(color: Colors.black),
             centerTitle: false,
             title: Text(
-              "약속멀티수정 페이지",
+              "Edit Page 'Our'",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,

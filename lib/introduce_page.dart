@@ -28,7 +28,7 @@ class _IntroducePageState extends State<IntroducePage> {
       return Scaffold(
         appBar: AppBar(
           title: Text(
-            "소개 페이지",
+            "Member",
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,

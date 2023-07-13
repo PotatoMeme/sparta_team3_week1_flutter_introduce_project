@@ -32,7 +32,7 @@ class IntroduceAddPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "소개 추가 페이지",
+          "Add Page 'Member'",
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
