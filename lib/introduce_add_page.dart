@@ -61,6 +61,7 @@ class IntroduceAddPage extends StatelessWidget {
                                 goal: textEditingControllerGoal.text,
                                 thumbUrl: textEditingControllerThumUrl.text))
                       }); //다이얼로그를 보여줘 한번더 확인 합니다.
+              FocusScope.of(context).unfocus();
             },
             icon: Icon(Icons.save),
           )

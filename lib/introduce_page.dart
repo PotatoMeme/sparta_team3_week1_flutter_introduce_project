@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -62,7 +64,9 @@ class _IntroducePageState extends State<IntroducePage> {
                   "삭제하시겠습니까?",
                   () {
                     Navigator.pop(context); //페이지를 끕니다.
-                    introduceService.deleteHuman(index: _idx);
+                    Timer(Duration(seconds: 1), () {
+                      introduceService.deleteHuman(index: _idx);
+                    });
                   },
                 ); //다이얼로그를 보여줘 한번더 확인 합니다.
               },
