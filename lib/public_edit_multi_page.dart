@@ -40,7 +40,7 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
             iconTheme: IconThemeData(color: Colors.black),
             centerTitle: false,
             title: Text(
-              "Edit Page 'Our'",
+              "Edit Page 'Team'",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,

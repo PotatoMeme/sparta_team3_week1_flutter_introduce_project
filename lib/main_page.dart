@@ -25,6 +25,7 @@ class _MainPageState extends State<MainPage> {
         builder: (context, introduceService, child) {
       List<Human> humanList = introduceService.humanList;
       return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color.fromARGB(255, 249, 216, 151),
         appBar: AppBar(
           title: Text("Main"),
