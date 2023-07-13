@@ -31,9 +31,9 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: false,
         title: Text(
-          "약속단일수정 페이지",
+          "Selected edit page 'Our'",
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 22,
             fontWeight: FontWeight.bold,
             color: Color.fromARGB(255, 255, 255, 255),
           ),

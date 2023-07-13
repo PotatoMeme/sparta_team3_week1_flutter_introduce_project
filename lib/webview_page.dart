@@ -12,7 +12,7 @@ class WebViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("웹뷰 페이지"),
+        title: Text("Web View"),
       ),
       body: WebView(initialUrl: url), //webView에 url을 집어넣어 해당링크의 페이지를 보여줍니다.
     );
