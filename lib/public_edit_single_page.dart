@@ -31,7 +31,7 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: false,
         title: Text(
-          "Selected edit page 'Our'",
+          "Selected edit page 'Team'",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
