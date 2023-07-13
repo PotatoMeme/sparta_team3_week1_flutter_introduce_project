@@ -76,7 +76,7 @@ class _PublicEditSinglePageState extends State<PublicEditSinglePage> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                   ),
-                  autofocus: true,
+                  maxLines: null,
                   keyboardType: TextInputType.multiline,
                 ),
               ),
