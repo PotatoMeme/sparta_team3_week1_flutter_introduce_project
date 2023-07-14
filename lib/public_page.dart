@@ -24,7 +24,7 @@ class _PublicPageState extends State<PublicPage> {
         return Scaffold(
           backgroundColor: Color.fromARGB(255, 240, 250, 232),
           appBar: AppBar(
-            title: Text("약속 페이지"),
+            title: Text("Team"),
             actions: [
               IconButton(
                 icon: Icon(Icons.edit),

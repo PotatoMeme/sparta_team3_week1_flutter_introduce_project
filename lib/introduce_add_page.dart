@@ -5,41 +5,34 @@ import 'package:provider/provider.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/human.dart';
 import 'package:sparta_team3_week1_flutter_introduce_project/introduce_service.dart';
 
-//소개를 수정하는 페이지 입니다.
-class IntroduceEditPage extends StatelessWidget {
-  //몇번째 값을 가져와야하는지 알아야하기때문에 생성자에서 idx값을 받아옵니다.
-  const IntroduceEditPage({super.key, required this.idx});
-  final int idx;
+//소개를 추가하는 페이지 입니다.
+class IntroduceAddPage extends StatelessWidget {
+  const IntroduceAddPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ////소개를 추가할려면 서비스를 가져와야하므로 context.read로 서비스를 가져옵니다.
+    //소개를 추가할려면 서비스를 가져와야하므로 context.read로 서비스를 가져옵니다.
     IntroduceService introduceService = context.read<IntroduceService>();
-    Human currentHuman = introduceService.humanList[idx];
+
     //text의 입력을 TextEditingController를 통해 introduceService로 전달해줘야 하므로 정의해줍니다
-    //또한 위에서 지정한 currentHuman의 값들을 컨틀롤러의 text에 넣어줘서 기존의 값들을넣어 줍니다.
-    TextEditingController textEditingControllerName =
-        TextEditingController(text: currentHuman.name);
+    TextEditingController textEditingControllerName = TextEditingController();
     TextEditingController textEditingControllerPosition =
-        TextEditingController(text: currentHuman.posittion);
-    TextEditingController textEditingControllerHobby =
-        TextEditingController(text: currentHuman.hobby);
+        TextEditingController();
+    TextEditingController textEditingControllerHobby = TextEditingController();
     TextEditingController textEditingControllerBlogUrl =
-        TextEditingController(text: currentHuman.blogUrl);
-    TextEditingController textEditingControllerStyle =
-        TextEditingController(text: currentHuman.style);
+        TextEditingController();
+    TextEditingController textEditingControllerStyle = TextEditingController();
     TextEditingController textEditingControllerAdvantages =
-        TextEditingController(text: currentHuman.advantages);
-    TextEditingController textEditingControllerMBTI =
-        TextEditingController(text: currentHuman.mbti);
-    TextEditingController textEditingControllerGoal =
-        TextEditingController(text: currentHuman.goal);
+        TextEditingController();
+    TextEditingController textEditingControllerMBTI = TextEditingController();
+    TextEditingController textEditingControllerGoal = TextEditingController();
     TextEditingController textEditingControllerThumUrl =
-        TextEditingController(text: currentHuman.thumbUrl);
+        TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Edit Page 'Member'",
+          "Add Page 'Member'",
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
@@ -51,13 +44,12 @@ class IntroduceEditPage extends StatelessWidget {
             onPressed: () {
               //저장버튼을 누를 경우의 로직임
               //저장로직을 구현해야함
-              showUpdateDialog(
+              showCreateDialog(
                   context,
                   () => {
-                        introduceService.updateHuman(
-                            index: idx,
-                            //입력을 바탕으로 Human을 새로 만들어 updateHuman함수를 통하여 기존의 idx값의 내용을 바꿔줍니다.
-                            changed: Human(
+                        introduceService.createHuman(
+                            //입력을 바탕으로 Human을 새로 만들어 추가해줍니다.
+                            human: Human(
                                 name: textEditingControllerName.text,
                                 posittion: textEditingControllerPosition.text,
                                 hobby: textEditingControllerHobby.text,
@@ -69,6 +61,7 @@ class IntroduceEditPage extends StatelessWidget {
                                 goal: textEditingControllerGoal.text,
                                 thumbUrl: textEditingControllerThumUrl.text))
                       }); //다이얼로그를 보여줘 한번더 확인 합니다.
+              FocusScope.of(context).unfocus();
             },
             icon: Icon(Icons.save),
           )
@@ -239,20 +232,20 @@ class IntroduceEditPage extends StatelessWidget {
     );
   }
 
-  void showUpdateDialog(BuildContext context, Function() dialogClosed) {
+  void showCreateDialog(BuildContext context, Function() dialogClosed) {
     //수정여부를 묻는 다이얼로그를 보여주는 함수입니다.
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("수정하시겠습니까?"),
+          title: Text("추가하시겠습니까?"),
           actions: [
             TextButton(
               onPressed: () {
                 //예버튼을 누를경우의 로직
                 Navigator.pop(context); //다이얼로그를 끕니다.
                 Navigator.pop(context); //페이지를 끕니다.
-                dialogClosed(); //예버튼을 누를경우 위에 입력한  dialogClosed를 호출해줍니다
+                dialogClosed(); //예버튼을 누를경우 위에 입력한  dialogClosed를 호출해줍니다.
               },
               child: Text("예"),
             ),

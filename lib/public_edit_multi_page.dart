@@ -8,7 +8,7 @@ import 'public_thing_service.dart';
 class PublicEditMultiPage extends StatefulWidget {
   PublicEditMultiPage({super.key, this.idx = 0});
 
-  final int idx;
+  final int idx; // public_page에서 넘어온 인덱스값 사용 x
 
   @override
   State<PublicEditMultiPage> createState() => _PublicEditMultiPageState();
@@ -22,7 +22,7 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
     TextEditingController(),
   ];
 
-  int count = 0;
+  bool multiSingle = true; // saveDialog에서 single_page와 multi_page를 구분하기 위한 변수
   @override
   Widget build(BuildContext context) {
     PublicThingService publicThingService = context.read<PublicThingService>();
@@ -40,18 +40,26 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
             iconTheme: IconThemeData(color: Colors.black),
             centerTitle: false,
             title: Text(
-              "약속멀티수정 페이지",
+              "Edit Page 'Team'",
               style: TextStyle(
                 fontSize: 28,
-                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             actions: [
-              IconButton(
+              OutlinedButton(
                 onPressed: () {
-                  showSaveConfirmationDialog(context, contentControllerList);
+                  showSaveConfirmationDialog(
+                      context, contentControllerList, widget.idx, multiSingle);
                 },
-                icon: Icon(Icons.save),
+                child: Icon(
+                  CupertinoIcons.floppy_disk,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
               ),
             ],
           ),
@@ -82,6 +90,8 @@ class _PublicEditMultiPageState extends State<PublicEditMultiPage> {
                           hintText: "입력을 해주세요",
                           border: InputBorder.none,
                         ),
+                        maxLines: null,
+                        keyboardType: TextInputType.multiline,
                       ),
                     ),
                     SizedBox(height: 10),

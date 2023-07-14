@@ -22,6 +22,7 @@ class Human {
   String thumbUrl = ""; // 프로필사진 이미지url
 
   Map toJson() {
+    //현재값을 map으로 변환
     return {
       "name": name,
       "posittion": posittion,
@@ -36,6 +37,7 @@ class Human {
   }
 
   factory Human.fromJson(json) {
+    //map값을 이용하여 객체를 생성
     return Human(
       name: json['name'],
       posittion: json["posittion"],
